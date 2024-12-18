@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/databasedesign/CSS_tubiaoku/font_rm5vfxx04j/iconfont.css">
+    <link rel="icon" sizes="360x360" href="/databasedesign/title图标/favicon.ico">
+    <title>登陆页面</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            /* 背景渐变 */
+            background-image: linear-gradient(-225deg, #231557 0%, #43107a 29%, #FF1361 100%);
+        }
+
+        canvas {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            /* margin-top: -50px; */
+            display: flex;
+            flex-direction: column;
+            /* backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px); */
+        }
+
+        .p-container {
+            margin-top: 20px;
+            margin-left: 20px;
+            color: aliceblue;
+            font-size: 18px;
+            font-family: "宋体";
+            font-style: italic;
+        }
+
+        .hr-container {
+            width: 100px;
+            margin-top: 5px;
+            display: block;
+            margin-left: 15px;
+            border: 1px solid aliceblue;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .username {
+            display: block;
+            height: 30px;
+            width: 250px;
+            border-radius: 15px;
+            padding-left: 15px;
+            margin-bottom: 15px;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid black;
+            color: white;
+        }
+
+        .username::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .password::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .password {
+            display: block;
+            height: 30px;
+            width: 250px;
+            border-radius: 15px;
+            padding-left: 15px;
+            margin-bottom: 15px;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid black;
+            color: white;
+        }
+
+        .button1 {
+            height: 30px;
+            width: 100px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+            outline: none;
+            border: 1px solid transparent;
+        }
+
+        .button2 {
+            margin-left: 60px;
+            height: 30px;
+            width: 100px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+            outline: none;
+            font-size: 13px;
+            border: 1px solid transparent;
+        }
+
+        .a-container {
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            display: block;
+            font-size: 13px;
+            width: 100%;
+        }
+
+        .p-over-container {
+            position: absolute;
+            bottom: 40px;
+            font-size: 12px;
+            margin-left: 7px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .image-container {
+            font-size: 20px;
+            position: absolute;
+            top: 5.5px;
+            left: 235px;
+        }
+
+        input[type="password"]::-ms-reveal {
+            margin-right: 11px;
+            font-size: 15px;
+        }
+
+        .p-over-container1 {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            margin-left: 50px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .Register {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            margin-left: 190px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 800;
+            color: #FF1361;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<canvas></canvas>
+<!-- 大盒子以存放表单 -->
+<div class="container" id="container">
+    <!-- p盒子存放登陆显示 -->
+    <p class="p-container">Login form</p>
+    <!-- 分隔线 -->
+    <hr class="hr-container">
+    <!-- 表单盒子 -->
+    <form action="/databasedesign/Login.jsp" class="form-container">
+        <!-- 用户名 -->
+        <input type="text" name="username" class="username" id="username" placeholder="Username" required>
+        <!-- 用户名图标 -->
+        <span class="icon iconfont image-container">&#xe601;</span>
+        <!-- 密码 -->
+        <input type="password" name="password" class="password" id="password" placeholder="Password" required>
+        <!-- 登录和重置按钮 -->
+        <button class="button1" type="submit" id="button">
+            <a id="a-container" class="a-container">Login</a>
+        </button>
+        <button class="button2" type="reset">Reset</button>
+        <!-- 用于显示错误消息的区域 -->
+        <div id="error-message" style="color: red; text-align: center;"></div>
+    </form>
+    <!-- 提醒p标签 -->
+    <p class="p-over-container">Please ensure the information is entered correctly.</p>
+    <p class="p-over-container1">Don't have an account?</p><a href="/databasedesign/Register.html" class="Register">Register!</a>
+</div>
+
+
+
+</body>
+
+<script>
+
+
+
+
+
+
+    //正则表达式验证账号以及密码的正确格式
+
+    var container = document.getElementById("container")
+    var button = document.getElementById("button")
+    var username = document.getElementById("username")
+    var password = document.getElementById("password")
+
+    var tips = document.createElement("span")
+    var ids=document.createAttribute("id")
+    ids.value="show"
+
+    function usernamevalid1() {
+
+        if (username.value == "") {
+            tips.innerHTML = "用户名不能为空，请重新输入"
+            tips.setAttributeNode(ids)
+            tips.style.textAlign="center"
+            tips.style.display="block"
+            tips.style.width="250px"
+            tips.style.position="absolute"
+            tips.style.top="165px"
+            tips.style.left="50%"
+            tips.style.transform="translateX(-50%)"
+            tips.style.fontSize="13px"
+            tips.style.color="#FF1361"
+            container.appendChild(tips)
+
+            // alert("用户名不能为空，请重新输入")
+            return false
+        }
+        return true
+    }
+    function usernamevalid2() {
+        var formulate = /^[0-9]+$/
+        if (formulate.test(username.value[0])) {
+            tips.innerHTML = "用户名不能以数字开头，请重新输入"
+            tips.setAttributeNode(ids)
+            tips.style.textAlign="center"
+            tips.style.display="block"
+            tips.style.width="250px"
+            tips.style.position="absolute"
+            tips.style.top="165px"
+            tips.style.left="50%"
+            tips.style.transform="translateX(-50%)"
+            tips.style.fontSize="13px"
+            tips.style.color="#FF1361"
+            container.appendChild(tips)
+            // alert("用户名不能以数字开头，请重新输入")
+            return false
+        }
+        return true
+    }
+    function usernamevalid3() {
+        var formulate = /^[A-Za-z0-9]+$/
+        if (!formulate.test(username.value)) {
+            tips.innerHTML = "用户名不能包含数字、大小写字母以外的值，请重新输入"
+            tips.setAttributeNode(ids)
+            tips.style.textAlign="center"
+            tips.style.display="block"
+            tips.style.width="250px"
+            tips.style.position="absolute"
+            tips.style.top="157px"
+            tips.style.left="50%"
+            tips.style.transform="translateX(-50%)"
+            tips.style.fontSize="13px"
+            tips.style.color="#FF1361"
+            container.appendChild(tips)
+            // alert("用户名不能包含数字、大小写字母以外的值，请重新输入")
+            return false
+        }
+        return true
+    }
+    function passwordvalid1() {
+        if (password.value.length < 8 || password.value.length > 16) {
+            tips.innerHTML = "密码长度必须为8~16位，请重新输入"
+            tips.setAttributeNode(ids)
+            tips.style.textAlign="center"
+            tips.style.display="block"
+            tips.style.width="250px"
+            tips.style.position="absolute"
+            tips.style.top="165px"
+            tips.style.left="50%"
+            tips.style.transform="translateX(-50%)"
+            tips.style.fontSize="13px"
+            tips.style.color="#FF1361"
+            container.appendChild(tips)
+            // alert("密码长度必须为8~16位，请重新输入")
+            return false
+        }
+        return true
+    }
+    function passwordvalid2() {
+        var formulate = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[~!@#$%^&*_.])[\da-zA-Z~!@#$%^&*_.]+$/
+        if (!formulate.test(password.value)) {
+            tips.innerHTML = "密码至少必须包含大小写字母、数字和符号各一位，请重新输入"
+            tips.setAttributeNode(ids)
+            tips.style.textAlign="center"
+            tips.style.display="block"
+            tips.style.width="250px"
+            tips.style.position="absolute"
+            tips.style.top="157px"
+            tips.style.left="50%"
+            tips.style.transform="translateX(-50%)"
+            tips.style.fontSize="13px"
+            tips.style.color="#FF1361"
+            container.appendChild(tips)
+            // alert("密码至少必须包含大小写字母、数字和符号各一位，请重新输入")
+            return false
+        }
+        return true
+    }
+
+
+    button.addEventListener("click", function (e) {//按钮单击即生效，故用单击事件
+            if (!usernamevalid1()) { e.preventDefault(); username.value = "" }
+            /* 如果验证失败，发生错误，则终止提交按钮的跳转，同时重置已输入的错误内容。以下同理 */
+            else
+            if (!usernamevalid2()) { e.preventDefault(); username.value = "" }
+            else
+            if (!usernamevalid3()) { e.preventDefault(); username.value = "" }
+            else
+            if (!passwordvalid1()) { e.preventDefault(); password.value = "" }
+            else
+            if (!passwordvalid2()) { e.preventDefault(); password.value = "" }
+        }
+
+    )
+
+
+
+    //进行超级无敌背景的编写！！！
+
+    //定义星星颜色
+    const STAR_COLOR = '#fff';
+    // 定义星星的大小
+    const STAR_SIZE = 3;
+    // 定义星星的最小缩放比例
+    const STAR_MIN_SCALE = 0.2;
+    // 定义溢出阈值
+    const OVERFLOW_THRESHOLD = 50;
+    // 定义星星的数量
+    const STAR_COUNT = (window.innerWidth + window.innerHeight) / 8;
+    // 获取canvas元素
+    const canvas = document.querySelector('canvas');
+    // 获取canvas的绘图上下文
+    const context = canvas.getContext('2d');
+    // 定义缩放比例
+    let scale = 1;
+    // device pixel ratio
+    // 定义宽度和高度
+    let width; let height;
+    // 定义星星数组
+    let stars = [];
+    // 定义鼠标指针的位置
+    let pointerX; let pointerY;
+    // 定义速度对象
+    let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0009 };
+    // 定义触摸输入标志
+    let touchInput = false;
+    // 生成星星
+    generate();
+    // 调整大小
+    resize();
+    // 运行动画
+    step();
+    // 当窗口大小改变时，重新调整大小
+    window.onresize = resize;
+    // 当鼠标在canvas上移动时，更新鼠标指针位置
+    canvas.onmousemove = onMouseMove;
+    // 当触摸屏在canvas上移动时，更新鼠标指针位置
+    canvas.ontouchmove = onTouchMove;
+    // 当触摸屏离开canvas时，更新鼠标指针位置
+    canvas.ontouchend = onMouseLeave;
+    // 当鼠标离开文档时，更新鼠标指针位置
+    document.onmouseleave = onMouseLeave;
+    // 生成星星
+    function generate() {
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({ x: 0, y: 0, z: STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE), });
+        }
+    }
+    // 将星星放置到随机位置
+    function placeStar(star) { star.x = Math.random() * width; star.y = Math.random() * height; }
+    // 回收星星并重新放置到新的位置
+    function recycleStar(star) {
+        // 初始化方向为 'z'
+        let direction = 'z';
+        // 获取速度的绝对值
+        let vx = Math.abs(velocity.x); let vy = Math.abs(velocity.y);
+        // 如果速度的绝对值大于1，则根据速度的大小随机确定方向
+        if (vx > 1 || vy > 1) {
+            let axis;
+            // 如果水平速度大于垂直速度，则根据水平速度的比例随机确定水平或垂直方向
+            if (vx > vy) { axis = Math.random() < vx / (vx + vy) ? 'h' : 'v'; } else { axis = Math.random() < vy / (vx + vy) ? 'v' : 'h'; }
+            // 根据方向确定具体的移动方向
+            if (axis === 'h') { direction = velocity.x > 0 ? 'l' : 'r'; } else { direction = velocity.y > 0 ? 't' : 'b'; }
+        }
+        // 随机设置星星的缩放比例
+        star.z = STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE);
+        // 根据方向设置星星的位置
+        if (direction === 'z') {
+
+            star.z = 0.1; star.x = Math.random() * width; star.y = Math.random() * height;
+        } else if (direction === 'l') {
+
+            star.x = -OVERFLOW_THRESHOLD; star.y = height * Math.random();
+        } else if (direction === 'r') {
+
+            star.x = width + OVERFLOW_THRESHOLD; star.y = height * Math.random();
+        } else if (direction === 't') {
+
+            star.x = width * Math.random(); star.y = -OVERFLOW_THRESHOLD;
+        } else if (direction === 'b') {
+
+            star.x = width * Math.random(); star.y = height + OVERFLOW_THRESHOLD;
+        }
+    }
+    // 调整大小
+    function resize() {
+        // 获取设备像素比例
+        scale = window.devicePixelRatio || 1;
+        // 设置画布的宽度和高度
+        width = window.innerWidth * scale; height = window.innerHeight * scale; canvas.width = width; canvas.height = height;
+        // 将所有星星重新放置到屏幕上
+        stars.forEach(placeStar);
+    }
+    // 动画的每一帧
+    function step() {
+        // 清空画布
+        context.clearRect(0, 0, width, height);
+        // 更新星星的位置和速度
+        update();
+        // 绘制星星
+        render();
+        // 请求下一帧动画
+        requestAnimationFrame(step);
+    }
+    // 更新星星的位置和速度
+    function update() {
+        // 缓动速度
+        velocity.tx *= 0.96; velocity.ty *= 0.96;
+        // 更新速度
+        velocity.x += (velocity.tx - velocity.x) * 0.8; velocity.y += (velocity.ty - velocity.y) * 0.8;
+        // 遍历
+        stars.forEach((star) => {
+            // 根据速度和缩放比例更新星星的位置
+            star.x += velocity.x * star.z; star.y += velocity.y * star.z;
+            // 根据速度和缩放比例更新星星的位置（使星星围绕屏幕中心旋转）
+            star.x += (star.x - width / 2) * velocity.z * star.z; star.y += (star.y - height / 2) * velocity.z * star.z;
+            // 更新星星的缩放比例
+            star.z += velocity.z;
+            // 如果星星超出屏幕范围，则重新放置到屏幕上
+            if (star.x < -OVERFLOW_THRESHOLD || star.x > width + OVERFLOW_THRESHOLD || star.y < -OVERFLOW_THRESHOLD || star.y > height + OVERFLOW_THRESHOLD) { recycleStar(star); }
+        });
+    }
+    // 绘制星星
+    function render() {
+        // 遍历
+        stars.forEach((star) => {
+            // 样式
+            context.beginPath(); context.lineCap = 'round'; context.lineWidth = STAR_SIZE * star.z * scale; context.globalAlpha = 0.5 + 0.5 * Math.random(); context.strokeStyle = STAR_COLOR;
+            // 绘制星星的路径
+            context.beginPath(); context.moveTo(star.x, star.y);
+            // 计算星星的尾巴坐标
+            let tailX = velocity.x * 2; let tailY = velocity.y * 2;
+            if (Math.abs(tailX) < 0.1) tailX = 0.5; if (Math.abs(tailY) < 0.1) tailY = 0.5;
+            context.lineTo(star.x + tailX, star.y + tailY); context.stroke();
+        });
+    }
+    function movePointer(x, y) {
+        if (typeof pointerX === 'number' && typeof pointerY === 'number') { let ox = x - pointerX; let oy = y - pointerY; velocity.tx = velocity.tx + (ox / 8) * scale * (touchInput ? 1 : -1); velocity.ty = velocity.ty + (oy / 8) * scale * (touchInput ? 1 : -1); }
+        pointerX = x; pointerY = y;
+    }
+    function onMouseMove(event) { touchInput = false; movePointer(event.clientX, event.clientY); }
+    function onTouchMove(event) { touchInput = true; movePointer(event.touches[0].clientX, event.touches[0].clientY, true); event.preventDefault(); }
+    function onMouseLeave() { pointerX = null; pointerY = null; }
+</script>
+
+</html>

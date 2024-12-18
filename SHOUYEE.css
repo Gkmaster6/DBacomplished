@@ -1,0 +1,703 @@
+body {
+    width: 100%;
+    height: 100vh;
+    /* 背景渐变 */
+    /*background-image: linear-gradient(to right, #434343 0%, black 100%);*/
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+canvas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+/*全局style设置*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1f1f1;
+    text-align: center;
+    font-family: cursive;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: none;
+}
+
+
+/*全局style设置*/
+
+
+/*顶部介绍style*/
+.header-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    height: 80px;
+    position: relative;
+    top: 0px;
+}
+
+.p-container {
+    padding-top: 16px;
+}
+
+.p-container p {
+    font-size: 20px;
+    font-family: cursive;
+    font-style: italic;
+    color: #f1f1f1;
+}
+/*顶部介绍style*/
+
+
+/*左侧标签按钮设置*/
+.first-container {
+    width: 1226px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ul-container {
+    width: 150px;
+    /* height: 620px; */
+    padding: 18px 0px;
+    background-color: rgba(105, 101, 101, 0.6);
+    position: absolute;
+}
+
+
+.ul-container li {
+    height: 94px;
+    line-height: 100px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s linear;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+.ul-container i {
+    font-family: cursive;
+}
+
+.ul-container>ul>li:nth-child(3) i,
+.ul-container>ul>li:nth-child(4) i,
+.ul-container>ul>li:nth-child(6) i {
+    margin-left: 30px;
+}
+
+.ul-container>ul>li:nth-child(1) i,
+.ul-container>ul>li:nth-child(2) i,
+.ul-container>ul>li:nth-child(5) i {
+    margin-left: 14px;
+}
+
+.ul-container ul li:hover {
+    background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+    background-blend-mode: screen;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    color: black;
+}
+
+/*左侧标签按钮设置*/
+
+
+/*右侧默认图片设置*/
+.image-container {
+    width: 1076px;
+    margin-left: 150px;
+    height: 600px;
+    background-image: url("/databasedesign/images/shopping.jpg");
+    background-size: cover;
+    background-position: 0% 60%;
+
+}
+/*右侧默认图片设置*/
+
+
+/*右侧盒子设置*/
+.result {
+    width: 1076px;
+    margin-left: 150px;
+    height: 600px;
+    /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+    /*background: #C9CCD3;*/
+    /*background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);*/
+    /*background-blend-mode: lighten;*/
+    background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+    /* background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%); */
+    display: none;
+    overflow-y: scroll;
+}
+
+div::-webkit-scrollbar {
+    width: 0px;
+}
+/*右侧盒子设置*/
+
+
+/*底部联系方式设置*/
+.bottom-container {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 0px;
+}
+
+.bottom-container p {
+    font-size: 20px;
+    font-family: cursive;
+    font-style: italic;
+    color: #f1f1f1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+}
+
+.bottom-container p:hover {
+    color: #ff6700;
+}
+
+/*底部联系方式设置*/
+
+
+.Arrow {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 20px solid #f1f1f1;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    left: 30%;
+    top: 25%;
+}
+
+.Arrow-2 {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-right: 20px solid #f1f1f1;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    right: 30%;
+    top: 25%;
+}
+
+div::-webkit-scrollbar {
+    width: 0px;
+}
+
+/*表格设置*/
+.tableone {
+
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    position: relative;
+    top: 0px;
+}
+
+.tabletwo{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    left: 42.8%;
+    position: relative;
+    top: 0px;
+    transform: translate(-50%);
+}
+
+.tablethree{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    position: relative;
+    top: 0px;
+}
+
+.tablefour{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    left: 42.8%;
+    position: relative;
+    top: 0px;
+    transform: translate(-50%);
+}
+
+.tablefive{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    left: 42.8%;
+    position: relative;
+    top: 0px;
+    transform: translate(-50%);
+}
+
+.tablesix{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    left: 42.8%;
+    position: relative;
+    top: 0px;
+    transform: translate(-50%);
+}
+
+td {
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.419);
+    width: 170px;
+    height: 60px;
+    font-size: 15px;
+    font-family: cursive;
+}
+
+.button1{
+    width: 50px;
+    height: 40px;
+    background-color: #55a532;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+    margin-right: 5px;
+    font-family: cursive;
+    font-size: 15px;
+    transition: all 0.2s linear;
+}
+
+.button1:hover{
+    transform: scale3d(1.1,1.1,1.1);
+}
+
+.button2{
+    width: 50px;
+    height: 40px;
+    background-color: red;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+    margin-left: 5px;
+    font-family: cursive;
+    font-size: 15px;
+    transition: all 0.2s linear;
+}
+
+.button2:hover{
+    transform: scale3d(1.1,1.1,1.1);
+}
+
+/*表格设置*/
+
+/*模块框设置*/
+
+.modalone {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 100;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: auto;
+    允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modaltwo {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    /* 允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modalthree {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    /* 允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modalfour {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    /* 允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modalfive {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    /* 允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modalsix {
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+    /* 允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modal-content {
+    position: relative;
+    /*background-color: #fefefe;*/
+    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+    margin: 5% auto;
+    /* 5% 从上部开始，居中 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    /* 宽度 */
+    height: 400px;
+    border-radius: 10px;
+}
+
+.modal-content-specialforthree{
+    position: relative;
+    margin: 5% auto;
+    /* 15% 从上部开始，居中 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    /* 宽度 */
+    height: 500px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    font-family: cursive;
+}
+
+
+.save {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    background-color: #55a532;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    font-family: cursive;
+    font-size: 15px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 300px;
+    height: 500px;
+}
+
+
+input{
+    border-radius: 10px;
+    outline: none;
+    padding-left: 4px;
+    border: 1px solid;
+    box-sizing: border-box;
+    font-family: cursive;
+    font-size: 15px;
+}
+/*模块框设置*/
+
+/*弹出成功框设置*/
+.showwin{
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    background-color: #fefefe;
+    color: #55a532;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    padding-top: 10px;
+    font-family: cursive;
+    font-weight: 800;
+}
+/*弹出成功框设置*/
+
+/* 删除模块框（确认框）设置 */
+.deletemodal {
+    position: relative;
+    display: none;
+    /* 默认隐藏 */
+    position: fixed;
+    z-index: 100;
+    /* 位于顶部 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: auto;
+允许滚动 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 透明背景 */
+}
+
+.modal-content-DL {
+    position: absolute;
+    /*background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);*/
+    /* 15% 从上部开始，居中 */
+    background-color: black;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    /* 宽度 */
+    height: 300px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    text-align: center;
+}
+
+.confirmDelete {
+    width: 60px;
+    height: 40px;
+    background-color: #55a532;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    margin-right: 5px;
+    margin-top: 10px;
+    font-family: cursive;
+    font-size: 15px;
+}
+
+.cancelDelete {
+    width: 60px;
+    height: 40px;
+    background-color: red;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    margin-left: 5px;
+    margin-top: 10px;
+    font-family: cursive;
+    font-size: 15px;
+}
+.remind{
+    color: red;
+    font-family: cursive;
+    font-weight: 800;
+    margin-top: 100px;
+}
+/* 删除模块框（确认框）设置 */
+
+/* 添加按钮设置 */
+/*.addbutton{*/
+/*  width: 100px;*/
+/*  height: 40px;*/
+/*  background-color: #9e9e9e;*/
+/*  color: black;*/
+/*  border-radius: 10px;*/
+/*  box-sizing: border-box;*/
+/*  border: 1px solid black;*/
+/*  cursor: pointer;*/
+/*  box-shadow: 2px 2px 2px rgba(0,0,0,0.6);*/
+/*  margin-top: 10px;*/
+/*  margin-bottom: 10px;*/
+/*  margin-left: -162px;*/
+/*}*/
+.addbutton {
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    width: 100px;
+    height: 40px;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -162px;
+    font-family: cursive;
+    font-size: 15px;
+}
+
+.addbutton::before {
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 50px;
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.addbutton:hover {
+    animation: sun 12s infinite;
+}
+
+@keyframes sun {
+    100% {
+        background-position: 400% 0;
+    }
+
+}
+/* 添加按钮设置 */
+
+/* 显示成功按钮 */
+.messageBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 2s ease;
+    color: #00ff77;
+    font-family: cursive;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+/* 显示成功按钮 */

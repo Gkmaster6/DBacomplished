@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" sizes="360x360" href="/databasedesign/title图标/favicon.ico">
+    <link rel="stylesheet" href="SHOUYEE.css" type="text/css">
+    <title>首页</title>
+    <style>
+
+    </style>
+</head>
+
+
+
+<body>
+
+<canvas></canvas>
+
+<div class="header-container">
+    <div class="p-container">
+        <span class="Arrow"></span>
+        <p>欢迎进入商场管理系统--《Wolf》</p>
+        <p>全民制作人：华建华、龚扬捷、代浩言</p>
+        <span class="Arrow-2"></span>
+    </div>
+</div>
+
+<div class="first-container">
+    <div class="ul-container">
+        <ul>
+            <li id="li-one" onclick="sendcan(1)">管理员信息<i>></i></li>
+            <li id="li-two" onclick="sendcan(2)">派遣员信息<i>></i></li>
+            <li id="li-three" onclick="sendcan(3)">订单信息<i>></i></li>
+            <li id="li-four" onclick="sendcan(4)">订单方式<i>></i></li>
+            <li id="li-five" onclick="sendcan(5)">制造商信息<i>></i></li>
+            <li id="li-six" onclick="sendcan(6)">产品信息<i>></i></li>
+        </ul>
+    </div>
+    <div class="image-container" id="image-container">
+        <!-- <img src="/images/lang.jpg" alt=""> -->
+    </div>
+    <div class="result" id="result"></div>
+</div>
+
+<div class="bottom-container">
+    <p>联系电话：188-7982-8758(组长电话，欢迎报错)</p>
+</div>
+
+
+
+<!-- 更新模态框 -->
+<!--模态框1-->
+<div class="modalone" id="modalone">
+    <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <h2>修改数据</h2>
+        <div class="form-container">
+            <label for="inputNumber">编号：</label>
+            <input type="text" id="inputNumber" placeholder="请输入编号" readonly>
+            <br><br>
+            <label for="inputName">姓名：</label>
+            <input type="text" id="inputName" placeholder="请输入姓名">
+            <br><br>
+            <label for="inputPassword">密码：</label>
+            <input type="text" id="inputPassword" placeholder="请输入密码">
+            <br><br>
+            <label for="inputPhone">手机：</label>
+            <input type="text" id="inputPhone" placeholder="请输入手机号码">
+            <br><br>
+            <label for="inputRole">权限：</label>
+            <input type="text" id="inputRole" placeholder="请输入权限">
+            <br><br>
+            <label for="inputAccount">账号：</label>
+            <input type="text" id="inputAccount" placeholder="请输入账号">
+            <br><br>
+            <button id="save" class="save" onclick="savedata(1)">保存</button>
+            <div class="showwin" id="showwin">保存成功</div>
+        </div>
+    </div>
+</div>
+
+<!--模态框2-->
+<div class="modaltwo" id="modaltwo">
+    <div class="modal-content">
+        <span class="close" id="close1">&times;</span>
+        <h2>修改数据</h2>
+        <div class="form-container">
+            <label for="inputNumber1">编号：</label>
+            <input type="text" id="inputNumber1" placeholder="请输入编号" readonly>
+            <br><br>
+            <label for="inputName1">姓名：</label>
+            <input type="text" id="inputName1" placeholder="请输入姓名">
+            <br><br>
+            <label for="inputPhone1">手机：</label>
+            <input type="text" id="inputPhone1" placeholder="请输入手机号码">
+            <br><br>
+            <button id="save1" class="save" onclick="savedata(2)">保存</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框3-->
+<div class="modalthree" id="modalthree">
+    <div class="modal-content-specialforthree">
+        <span class="close" id="close2">&times;</span>
+        <h2>修改数据</h2>
+        <div class="form-container">
+            <label for="inputNumber2">编号：</label>
+            <input type="text" id="inputNumber2" placeholder="请输入编号" readonly>
+            <br><br>
+            <label for="inputNm2">产品名称：</label>
+            <input type="text" id="inputNm2" placeholder="请输入产品名称">
+            <br><br>
+            <label for="inputCount2">数量：</label>
+            <input type="text" id="inputCount2" placeholder="请输入数量">
+            <br><br>
+            <label for="inputSpend2">花费：</label>
+            <input type="text" id="inputSpend2" placeholder="请输入花费">
+            <br><br>
+            <label for="inputName2">姓名：</label>
+            <input type="text" id="inputName2" placeholder="请输入姓名">
+            <br><br>
+            <label for="inputPhone2">电话：</label>
+            <input type="text" id="inputPhone2" placeholder="请输入电话">
+            <br><br>
+            <label for="inputAddress2">地址：</label>
+            <input type="text" id="inputAddress2" placeholder="请输入地址">
+            <br><br>
+            <label for="inputWay2">订购方式：</label>
+            <select id="inputWay2" style="width: 170px; border-radius: 10px; border: 1px solid; font-family: cursive; font-size: 15px;">
+                <option value="网上订单">网上订单</option>
+                <option value="人工订单">人工订单</option>
+            </select>
+            <br><br>
+            <label for="inputTime2">订购时间：</label>
+            <input type="text" id="inputTime2" placeholder="请输入订购时间">
+            <br><br>
+            <button id="save2" class="save" onclick="savedata(3)">保存</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框4-->
+<div class="modalfour" id="modalfour">
+    <div class="modal-content">
+        <span class="close" id="close3">&times;</span>
+        <h2>修改数据</h2>
+        <div class="form-container">
+            <label for="inputNumber3">订购方式：</label>
+            <input type="text" id="inputNumber3" placeholder="请输入订购方式" readonly>
+            <br><br>
+            <label for="inputName3">数量：</label>
+            <input type="text" id="inputName3" placeholder="请输入数量">
+            <br><br>
+            <button id="save3" class="save" onclick="savedata(4)">保存</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框5-->
+<div class="modalfive" id="modalfive">
+    <div class="modal-content">
+        <span class="close" id="close4">&times;</span>
+        <h2>修改数据</h2>
+        <div class="form-container">
+            <label for="inputNumber4">编号：</label>
+            <input type="text" id="inputNumber4" placeholder="请输入编号" readonly>
+            <br><br>
+            <label for="inputName4">姓名：</label>
+            <input type="text" id="inputName4" placeholder="请输入姓名">
+            <br><br>
+            <label for="inputNm4">产品名称：</label>
+            <input type="text" id="inputNm4" placeholder="请输入产品名称">
+            <br><br>
+            <button id="save4" class="save" onclick="savedata(5)">保存</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框6-->
+<div class="modalsix" id="modalsix">
+    <div class="modal-content">
+        <span class="close" id="close5">&times;</span>
+        <h2>修改数据</h2>
+        <div class="form-container">
+            <label for="inputNumber5">编号：</label>
+            <input type="text" id="inputNumber5" placeholder="请输入编号" readonly>
+            <br><br>
+            <label for="inputNm5">产品名称：</label>
+            <input type="text" id="inputNm5" placeholder="请输入产品名称">
+            <br><br>
+            <label for="inputPrice5">单价：</label>
+            <input type="text" id="inputPrice5" placeholder="请输入单价">
+            <br><br>
+            <label for="inputStorage5">库存：</label>
+            <input type="text" id="inputStorage5" placeholder="请输入库存量">
+            <br><br>
+            <button id="save5" class="save" onclick="savedata(6)">保存</button>
+        </div>
+    </div>
+</div>
+<!-- 更新模态框 -->
+
+
+
+<!-- 删除模态框 -->
+<div class="deletemodal" id="deletemodal">
+    <div class="modal-content-DL">
+        <p class="remind">确定要删除这条数据吗？(此操作不可撤销！！！)</p>
+        <button class="confirmDelete" id="confirmDelete">确认</button>
+        <button class="cancelDelete" id="cancelDelete">取消</button>
+    </div>
+</div>
+<!-- 删除模态框 -->
+
+
+
+<!-- 添加模态框 -->
+<!--模态框1-->
+<div class="modalone" id="addmodalone">
+    <div class="modal-content">
+        <span class="close" id="addclose">&times;</span>
+        <h2>添加数据</h2>
+        <div class="form-container">
+            <label for="addinputName">姓名：</label>
+            <input type="text" id="addinputName" placeholder="请输入姓名">
+            <br><br>
+            <label for="addinputPassword">密码：</label>
+            <input type="text" id="addinputPassword" placeholder="请输入密码">
+            <br><br>
+            <label for="addinputPhone">手机：</label>
+            <input type="text" id="addinputPhone" placeholder="请输入手机号码">
+            <br><br>
+            <label for="addinputRole">权限：</label>
+            <input type="text" id="addinputRole" placeholder="请输入权限">
+            <br><br>
+            <label for="addinputAccount">账号：</label>
+            <input type="text" id="addinputAccount" placeholder="请输入账号">
+            <br><br>
+            <button id="addsave" class="save" onclick="addsave(1)">添加</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框2-->
+<div class="modaltwo" id="addmodaltwo">
+    <div class="modal-content">
+        <span class="close" id="addclose1">&times;</span>
+        <h2>添加数据</h2>
+        <div class="form-container">
+            <label for="addinputName1">姓名：</label>
+            <input type="text" id="addinputName1" placeholder="请输入姓名">
+            <br><br>
+            <label for="addinputPhone1">手机：</label>
+            <input type="text" id="addinputPhone1" placeholder="请输入手机号码">
+            <br><br>
+            <button id="addsave1" class="save" onclick="addsave(2)">添加</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框3-->
+<div class="modalthree" id="addmodalthree">
+    <div class="modal-content-specialforthree">
+        <span class="close" id="addclose2">&times;</span>
+        <h2>添加数据</h2>
+        <div class="form-container">
+            <label for="addinputNm2">产品名称：</label>
+            <input type="text" id="addinputNm2" placeholder="请输入产品名称">
+            <br><br>
+            <label for="addinputCount2">数量：</label>
+            <input type="text" id="addinputCount2" placeholder="请输入数量">
+            <br><br>
+            <label for="addinputName2">姓名：</label>
+            <input type="text" id="addinputName2" placeholder="请输入姓名">
+            <br><br>
+            <label for="addinputPhone2">电话：</label>
+            <input type="text" id="addinputPhone2" placeholder="请输入电话号码">
+            <br><br>
+            <label for="addinputAddress2">地址：</label>
+            <input type="text" id="addinputAddress2" placeholder="请输入地址">
+            <br><br>
+            <label for="addinputWay2">订购方式：</label>
+            <select id="addinputWay2" style="width: 170px; border-radius: 10px; border: 1px solid; font-family: cursive; font-size: 15px;">
+                <option value="网上订单">网上订单</option>
+                <option value="人工订单">人工订单</option>
+            </select>
+            <br><br>
+            <button id="addsave2" class="save" onclick="addsave(3)">添加</button>
+            <div class="not-enough remind" id="not-enough" style="display: none;">产品不存在，请先添加产品并给予充足库存</div>
+        </div>
+    </div>
+</div>
+
+
+<!--模态框5-->
+<div class="modalfive" id="addmodalfive">
+    <div class="modal-content">
+        <span class="close" id="addclose4">&times;</span>
+        <h2>添加数据</h2>
+        <div class="form-container">
+            <label for="addinputName4">姓名：</label>
+            <input type="text" id="addinputName4" placeholder="请输入姓名">
+            <br><br>
+            <label for="addinputNm4">产品名称：</label>
+            <input type="text" id="addinputNm4" placeholder="请输入产品名称">
+            <br><br>
+            <button id="addsave4" class="save" onclick="addsave(5)">添加</button>
+        </div>
+    </div>
+</div>
+
+<!--模态框6-->
+<div class="modalsix" id="addmodalsix">
+    <div class="modal-content">
+        <span class="close" id="addclose5">&times;</span>
+        <h2>添加数据</h2>
+        <div class="form-container">
+            <label for="addinputNm5">产品名称：</label>
+            <input type="text" id="addinputNm5" placeholder="请输入产品名称">
+            <br><br>
+            <label for="addinputPrice5">单价：</label>
+            <input type="text" id="addinputPrice5" placeholder="请输入单价">
+            <br><br>
+            <label for="addinputStorage5">库存：</label>
+            <input type="text" id="addinputStorage5" placeholder="请输入库存">
+            <br><br>
+            <button id="addsave5" class="save" onclick="addsave(6)">添加</button>
+        </div>
+    </div>
+</div>
+<!-- 添加模态框 -->
+
+
+<!-- 成功提示框 -->
+<div class="messageBox" id="messageBox">处理成功</div>
+<!-- 成功提示框 -->
+
+
+</body>
+
+<!-- 更新以及删除操作 -->
+<script>
+    /* 侧边按钮显示以及查找并打印操作 */
+    var imagecontainer = document.getElementById("image-container");
+    var result = document.getElementById("result");
+
+    function sendcan(param) {
+        imagecontainer.style.display = "none";
+        result.style.display = "block";
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/dataCommon?param=' + encodeURIComponent(param), true); // 请求后端数据时添加参数
+        xhr.onload = function() {
+            if (xhr.status === 200 && xhr.readyState == 4) {
+                result.innerHTML = xhr.responseText; // 将响应的 HTML 显示在页面中
+            } else{
+                console.log('请求失败', xhr.status);
+            }
+        };
+        xhr.send(); // GET请求不需要发送请求体
+    }
+    /* 侧边按钮显示以及查找并打印操作 */
+
+    /* 模态框显示操作 */
+    var modalone = document.getElementById("modalone");
+    var modaltwo=document.getElementById("modaltwo");
+    var modalthree=document.getElementById("modalthree");
+    var modalfour=document.getElementById("modalfour");
+    var modalfive=document.getElementById("modalfive");
+    var modalsix=document.getElementById("modalsix");
+    var span = document.getElementById("close");
+    var span1=document.getElementById("close1");
+    var span2=document.getElementById("close2");
+    var span3=document.getElementById("close3");
+    var span4=document.getElementById("close4");
+    var span5=document.getElementById("close5");
+    var showwin=document.getElementById("showwin");
+    var save=document.getElementById("save");
+    // 当前待编辑的行
+    var currentRow;
+    span.onclick = function () {
+        modalone.style.display = "none";
+    };
+    span1.onclick=function (){
+        modaltwo.style.display="none"
+    }
+    span2.onclick=function (){
+        modalthree.style.display="none"
+    }
+    span3.onclick=function (){
+        modalfour.style.display="none"
+    }
+    span4.onclick=function (){
+        modalfive.style.display="none"
+    }
+    span5.onclick=function (){
+        modalsix.style.display="none"
+    }
+    window.onclick = function (event) {
+        if (event.target == modalone) {
+            modalone.style.display = "none";
+        }
+        else
+        if(event.target==modaltwo){
+            modaltwo.style.display="none"
+        }
+        else
+        if(event.target==modalthree){
+            modalthree.style.display="none"
+        }
+        else
+        if(event.target==modalfour){
+            modalfour.style.display="none"
+        }
+        else
+        if(event.target==modalfive){
+            modalfive.style.display="none"
+        }
+        else
+        if(event.target==modalsix){
+            modalsix.style.display="none"
+        }
+        else
+        if(event.target==deletetr){
+            deletetr.style.display="none";
+        }
+        if (event.target == addmodalone) {
+            addmodalone.style.display = "none";
+        }
+        else
+        if(event.target==addmodaltwo){
+            addmodaltwo.style.display="none"
+        }
+        else
+        if(event.target==addmodalthree){
+            addmodalthree.style.display="none"
+        }
+        else
+        if(event.target==addmodalfive){
+            addmodalfive.style.display="none"
+        }
+        else
+        if(event.target==addmodalsix){
+            addmodalsix.style.display="none"
+        }
+    };
+
+    function show(btn,number){
+        const row=btn.closest('tr'); // 获取当前行
+        currentRow=row;
+        const cells = row.getElementsByTagName("td");
+        if(number===1) {
+            modalone.style.display = "block";
+            document.getElementById('inputNumber').value = cells[0].innerText;
+            document.getElementById('inputName').value = cells[1].innerText;
+            document.getElementById('inputPassword').value = cells[2].innerText;
+            document.getElementById('inputPhone').value = cells[3].innerText;
+            document.getElementById('inputRole').value = cells[4].innerText;
+            document.getElementById('inputAccount').value = cells[5].innerText;
+        }
+        else
+        if(number===2){
+            modaltwo.style.display = "block";
+            document.getElementById('inputNumber1').value = cells[0].innerText;
+            document.getElementById('inputName1').value = cells[1].innerText;
+            document.getElementById('inputPhone1').value = cells[2].innerText;
+        }
+        else
+        if(number===3){
+            modalthree.style.display = "block";
+            document.getElementById('inputNumber2').value = cells[0].innerText;
+            document.getElementById('inputNm2').value = cells[1].innerText;
+            document.getElementById('inputCount2').value = cells[2].innerText;
+            document.getElementById('inputSpend2').value = cells[3].innerText;
+            document.getElementById('inputName2').value = cells[4].innerText;
+            document.getElementById('inputPhone2').value = cells[5].innerText;
+            document.getElementById('inputAddress2').value = cells[6].innerText;
+            document.getElementById('inputWay2').value = cells[7].innerText;
+            document.getElementById('inputTime2').value = cells[8].innerText;
+        }
+        else
+        if(number===4){
+            modalfour.style.display = "block";
+            document.getElementById("inputNumber3").value=cells[0].innerText;
+            document.getElementById('inputName3').value = cells[1].innerText;
+        }
+        else
+        if(number===5){
+            modalfive.style.display = "block";
+            document.getElementById('inputNumber4').value = cells[0].innerText;
+            document.getElementById('inputName4').value = cells[1].innerText;
+            document.getElementById('inputNm4').value = cells[2].innerText;
+        }
+        else
+        if(number===6){
+            modalsix.style.display = "block";
+            document.getElementById('inputNumber5').value = cells[0].innerText;
+            document.getElementById('inputNm5').value = cells[1].innerText;
+            document.getElementById('inputPrice5').value = cells[2].innerText;
+            document.getElementById('inputStorage5').value = cells[3].innerText;
+        }
+    }
+    /* 模态框显示操作 */
+
+    /* 删除操作 */
+    var tablename = null;
+    var deletetr = document.getElementById("deletemodal");
+    function Delete(btn, number) {
+        const row = btn.closest('tr'); // 获取当前行
+
+        // 根据number设置tablename
+        switch (number) {
+            case 1:
+                tablename = 'users';
+                break;
+            case 2:
+                tablename = 'dispatcher';
+                break;
+            case 3:
+                tablename = 'orders';
+                break;
+            case 4:
+                tablename = 'orderway';
+                break;
+            case 5:
+                tablename = 'maker';
+                break;
+            case 6:
+                tablename = 'product';
+                break;
+            default:
+                console.error("无效的操作 number");
+                return;
+        }
+
+        //获取当前行的ID
+        const idToDelete = row.cells[0].textContent;
+
+        //显示删除确认模态框
+        deletetr.style.display = "block";
+
+        //删除操作
+        document.getElementById("confirmDelete").onclick = function() {
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response = JSON.parse(xhr.responseText);
+                    console.log("成功", response);
+                    deletetr.style.display = "none";
+                    showMessage("删除成功!");
+                    row.remove();
+                } else {
+                    console.log('请求失败', xhr.statusText);
+                }
+            };
+            xhr.send(`num=7&tablename=${encodeURIComponent(tablename)}&id=${encodeURIComponent(idToDelete)}`);
+        };
+
+        //取消删除
+        document.getElementById("cancelDelete").onclick = function() {
+            deletetr.style.display = "none";
+        };
+
+    }
+    /* 删除操作 */
+
+
+    /* 更新操作 */
+    function savedata(num) {
+        if(num===1){
+            const user_id = document.getElementById('inputNumber').value
+            const user_name = document.getElementById('inputName').value
+            const PRpassword = document.getElementById('inputPassword').value
+            const telephone = document.getElementById('inputPhone').value
+            const role = document.getElementById('inputRole').value
+            const account = document.getElementById('inputAccount').value
+            // 更新表格中对应的行
+            if (currentRow) {
+                currentRow.cells[0].innerText = user_id;
+                currentRow.cells[1].innerText = user_name;
+                currentRow.cells[2].innerText = PRpassword;
+                currentRow.cells[3].innerText = telephone;
+                currentRow.cells[4].innerText = role;
+                currentRow.cells[5].innerText = account;
+                document.getElementById('inputNumber').value = "";
+                document.getElementById('inputName').value = "";
+                document.getElementById('inputPassword').value = "";
+                document.getElementById('inputPhone').value = "";
+                document.getElementById('inputRole').value = "";
+                document.getElementById('inputAccount').value = "";
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true); // 请求后端数据时添加参数
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response=JSON.parse(xhr.responseText)
+                    console.log("成功",response);
+                    modalone.style.display="none";
+                    showMessage("更新完成!");
+                } else{
+                    console.log('请求失败', xhr.statusText);
+                }
+            };
+            xhr.send(`num=1&user_id=${encodeURIComponent(user_id)}&user_name=${encodeURIComponent(user_name)}&PRpassword=${encodeURIComponent(PRpassword)}&telephone=${encodeURIComponent(telephone)}&role=${encodeURIComponent(role)}&account=${encodeURIComponent(account)}`);
+        }
+        else
+        if(num===2){
+            const dispatcher_id = document.getElementById('inputNumber1').value
+            const dispatcher_name = document.getElementById('inputName1').value
+            const dispatcher_phone = document.getElementById('inputPhone1').value
+            // 更新表格中对应的行
+            if (currentRow) {
+                currentRow.cells[0].innerText = dispatcher_id;
+                currentRow.cells[1].innerText = dispatcher_name;
+                currentRow.cells[2].innerText = dispatcher_phone;
+                modaltwo.style.display = "none"; // 关闭模态框
+                document.getElementById('inputNumber1').value = "";
+                document.getElementById('inputName1').value = "";
+                document.getElementById('inputPhone1').value = "";
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true); // 请求后端数据时添加参数
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response=JSON.parse(xhr.responseText)
+                    console.log("成功",response);
+                    modaltwo.style.display="none";
+                    showMessage("更新完成!");
+                } else{
+                    console.log('请求失败', xhr.statusText);
+                }
+            };
+            xhr.send(`num=2&dispatcher_id=${encodeURIComponent(dispatcher_id)}&dispatcher_name=${encodeURIComponent(dispatcher_name)}&dispatcher_phone=${encodeURIComponent(dispatcher_phone)}`);
+        }
+        else
+        if(num===3){
+            const orders_id=document.getElementById('inputNumber2').value
+            const product_name=document.getElementById('inputNm2').value
+            const number=document.getElementById('inputCount2').value
+            const order_money=document.getElementById('inputSpend2').value
+            const user_name=document.getElementById('inputName2').value
+            const phone=document.getElementById('inputPhone2').value
+            const address=document.getElementById('inputAddress2').value
+            const order_way=document.getElementById('inputWay2').value
+            const create_time=document.getElementById('inputTime2').value
+            // 更新表格中对应的行
+            if (currentRow) {
+                currentRow.cells[0].innerText = orders_id;
+                currentRow.cells[1].innerText = product_name;
+                currentRow.cells[2].innerText = number;
+                currentRow.cells[3].innerText = order_money;
+                currentRow.cells[4].innerText = user_name;
+                currentRow.cells[5].innerText = phone;
+                currentRow.cells[6].innerText = address;
+                currentRow.cells[7].innerText = order_way;
+                currentRow.cells[8].innerText = create_time;
+                modalthree.style.display = "none"; // 关闭模态框
+                document.getElementById('inputNumber2').value=""
+                document.getElementById('inputNm2').value=""
+                document.getElementById('inputCount2').value=""
+                document.getElementById('inputSpend2').value=""
+                document.getElementById('inputName2').value=""
+                document.getElementById('inputPhone2').value=""
+                document.getElementById('inputAddress2').value=""
+                document.getElementById('inputWay2').value=""
+                document.getElementById('inputTime2').value=""
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true); // 请求后端数据时添加参数
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response=JSON.parse(xhr.responseText)
+                    console.log("成功",response);
+                    modalthree.style.display="none";
+                    showMessage("更新完成!");
+                } else{
+                    console.log('请求失败', xhr.statusText);
+                    alert("库存不足或产品不存在，请重新输入或更新库存");
+                }
+            };
+            xhr.send(`num=3&orders_id=${encodeURIComponent(orders_id)}&product_name=${encodeURIComponent(product_name)}&number=${encodeURIComponent(number)}&order_money=${encodeURIComponent(order_money)}&user_name=${encodeURIComponent(user_name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&order_way=${encodeURIComponent(order_way)}&create_time=${encodeURIComponent(create_time)}`);
+        }
+        else
+        if(num===4){
+            const orderway_name = document.getElementById('inputNumber3').value
+            const count = document.getElementById('inputName3').value
+            // 更新表格中对应的行
+            if (currentRow) {
+                currentRow.cells[1].innerText = count;
+                currentRow.cells[0].innerText = orderway_name;
+                modalfour.style.display = "none"; // 关闭模态框
+                document.getElementById('inputNumber3').value = "";
+                document.getElementById('inputName3').value = "";
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true); // 请求后端数据时添加参数
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response=JSON.parse(xhr.responseText)
+                    console.log("成功",response);
+                    modalfour.style.display="none";
+                    showMessage("更新完成!");
+                } else{
+                    console.log('请求失败', xhr.statusText);
+                }
+            };
+            xhr.send(`num=4&orderway_name=${encodeURIComponent(orderway_name)}&count=${encodeURIComponent(count)}`);
+
+        }
+        else
+        if(num===5){
+            const maker_id = document.getElementById('inputNumber4').value
+            const maker_name = document.getElementById('inputName4').value
+            const product_name = document.getElementById('inputNm4').value
+            // 更新表格中对应的行
+            if (currentRow) {
+                currentRow.cells[0].innerText = maker_id;
+                currentRow.cells[1].innerText = maker_name;
+                currentRow.cells[2].innerText = product_name;
+                modalfive.style.display = "none"; // 关闭模态框
+                document.getElementById('inputNumber4').value = "";
+                document.getElementById('inputName4').value = "";
+                document.getElementById('inputNm4').value = "";
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true); // 请求后端数据时添加参数
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response=JSON.parse(xhr.responseText)
+                    console.log("成功",response);
+                    modalfive.style.display="none";
+                    showMessage("更新完成!");
+                } else{
+                    console.log('请求失败', xhr.statusText);
+                }
+            };
+            xhr.send(`num=5&maker_id=${encodeURIComponent(maker_id)}&maker_name=${encodeURIComponent(maker_name)}&product_name=${encodeURIComponent(product_name)}`);
+        }
+        else
+        if(num===6){
+            const product_id = document.getElementById('inputNumber5').value
+            const product_name = document.getElementById('inputNm5').value
+            const product_price = document.getElementById('inputPrice5').value
+            const stock=document.getElementById("inputStorage5").value
+            // 更新表格中对应的行
+            if (currentRow) {
+                currentRow.cells[0].innerText = product_id;
+                currentRow.cells[1].innerText = product_name;
+                currentRow.cells[2].innerText = product_price;
+                currentRow.cells[3].innerText=stock;
+                modalsix.style.display = "none"; // 关闭模态框
+                document.getElementById('inputNumber5').value = "";
+                document.getElementById('inputNm5').value = "";
+                document.getElementById('inputPrice5').value = "";
+                document.getElementById('inputStorage5').value = "";
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/UpandDl', true); // 请求后端数据时添加参数
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200 && xhr.readyState == 4) {
+                    const response=JSON.parse(xhr.responseText)
+                    console.log("成功",response);
+                    modalsix.style.display="none";
+                    showMessage("更新完成!");
+                } else{
+                    console.log('请求失败', xhr.statusText);
+                }
+            };
+            xhr.send(`num=6&product_id=${encodeURIComponent(product_id)}&product_name=${encodeURIComponent(product_name)}&product_price=${encodeURIComponent(product_price)}&stock=${encodeURIComponent(stock)}`);
+
+        }
+    }
+    /* 更新操作 */
+
+
+
+    <!-- 增加操作 -->
+
+    var addmodalone = document.getElementById("addmodalone");
+    var addmodaltwo=document.getElementById("addmodaltwo");
+    var addmodalthree=document.getElementById("addmodalthree");
+    var addmodalfive=document.getElementById("addmodalfive");
+    var addmodalsix=document.getElementById("addmodalsix");
+    var addspan = document.getElementById("addclose");
+    var addspan1=document.getElementById("addclose1");
+    var addspan2=document.getElementById("addclose2");
+    var addspan4=document.getElementById("addclose4");
+    var addspan5=document.getElementById("addclose5");
+
+
+    addspan.onclick = function () {
+        addmodalone.style.display = "none";
+    };
+    addspan1.onclick=function (){
+        addmodaltwo.style.display="none"
+    }
+    addspan2.onclick=function (){
+        addmodalthree.style.display="none"
+    }
+    addspan4.onclick=function (){
+        addmodalfive.style.display="none"
+    }
+    addspan5.onclick=function (){
+        addmodalsix.style.display="none"
+    }
+
+
+    function addshow(number){
+        if(number==1){
+            addmodalone.style.display="block";
+        }
+        else
+        if(number==2){
+            addmodaltwo.style.display="block";
+        }
+        else
+        if(number==3){
+            addmodalthree.style.display="block";
+        }
+        else
+        if(number==5){
+            addmodalfive.style.display="block";
+        }
+        else
+        if(number==6){
+            addmodalsix.style.display="block";
+        }
+    }
+
+    function addsave(num) {
+
+        var xhr = new XMLHttpRequest();
+        var url = "/AddData";
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        var data = "";
+
+        if (num === 1) {
+            // 用户数据
+            var user_name = document.getElementById('addinputName').value;
+            var telephone = document.getElementById('addinputPhone').value;
+            var role = document.getElementById('addinputRole').value;
+            var account = document.getElementById('addinputAccount').value;
+            var PRpassword = document.getElementById('addinputPassword').value;
+
+            data = "num=1&user_name=" + encodeURIComponent(user_name) +
+                "&telephone=" + encodeURIComponent(telephone) +
+                "&role=" + encodeURIComponent(role) +
+                "&account=" + encodeURIComponent(account) +
+                "&PRpassword=" + encodeURIComponent(PRpassword);
+
+        } else if (num === 2) {
+            var dispatcher_name = document.getElementById('addinputName1').value;
+            var dispatcher_phone = document.getElementById('addinputPhone1').value;
+
+            data = "num=2&dispatcher_name=" + encodeURIComponent(dispatcher_name) +
+                "&dispatcher_phone=" + encodeURIComponent(dispatcher_phone);
+
+        } else if (num === 3) {
+            var product_name = document.getElementById('addinputNm2').value;
+            var number = document.getElementById('addinputCount2').value;
+            var user_name = document.getElementById('addinputName2').value;
+            var phone = document.getElementById('addinputPhone2').value;
+            var address = document.getElementById('addinputAddress2').value;
+            var order_way = document.getElementById('addinputWay2').value;
+            var create_time = new Date().toISOString(); // 使用当前时间
+
+            data = "num=3&product_name=" + encodeURIComponent(product_name) +
+                "&number=" + encodeURIComponent(number) +
+                "&user_name=" + encodeURIComponent(user_name) +
+                "&phone=" + encodeURIComponent(phone) +
+                "&address=" + encodeURIComponent(address) +
+                "&order_way=" + encodeURIComponent(order_way);
+        } else if (num === 5) {
+            var maker_name = document.getElementById('addinputName4').value;
+            var product_name = document.getElementById('addinputNm4').value;
+
+            data = "num=5&maker_name=" + encodeURIComponent(maker_name) +
+                "&product_name=" + encodeURIComponent(product_name);
+
+        } else if (num === 6) {
+            var product_name = document.getElementById('addinputNm5').value;
+            var product_price = document.getElementById('addinputPrice5').value;
+            var stock = document.getElementById('addinputStorage5').value;
+
+            data = "num=6&product_name=" + encodeURIComponent(product_name) +
+                "&product_price=" + encodeURIComponent(product_price) +
+                "&stock=" + encodeURIComponent(stock);
+        }
+
+        // 发送请求
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    //处理成功响应
+                    var response = JSON.parse(xhr.responseText);
+                    console.log("成功",response);
+                    switch (num) {
+                        case 1:
+                            document.getElementById('addmodalone').style.display = 'none'; // 关闭模态框1
+                            break;
+                        case 2:
+                            document.getElementById('addmodaltwo').style.display = 'none'; // 关闭模态框2
+                            break;
+                        case 3:
+                            document.getElementById('addmodalthree').style.display = 'none'; // 关闭模态框3
+                            break;
+                        case 5:
+                            document.getElementById('addmodalfive').style.display = 'none'; // 关闭模态框5
+                            break;
+                        case 6:
+                            document.getElementById('addmodalsix').style.display = 'none'; // 关闭模态框6
+                            break;
+                    }
+                    document.getElementById("not-enough").style.display="none";
+                    showMessage("处理成功");
+                } else {
+                    // 处理错误响应
+                    if(num==3){
+                        document.getElementById("not-enough").style.display="block";
+                        document.getElementById("not-enough").style.width="310px";
+                    }
+                    else{
+                        console.log('请求失败', xhr.statusText);
+                    }
+
+                }
+            }
+        };
+
+        xhr.send(data);
+    }
+    // 显示消息的函数
+    function showMessage(message) {
+        var messageBox = document.getElementById('messageBox');
+        messageBox.innerText = message; // 设置消息内容
+        messageBox.style.display = 'block'; // 显示消息框
+        messageBox.style.opacity = 1; // 设置初始透明度为1
+
+        // 设置定时器，2秒后缓慢消失
+        setTimeout(function() {
+            messageBox.style.opacity = 0;
+            setTimeout(function() {
+                messageBox.style.display = 'none';
+            }, 2000);
+        }, 1000);//显示2秒后开始消失
+    }
+</script>
+<!-- 增加操作 -->
+
+
+<!-- 背景编写 -->
+<script>
+    //进行超级无敌背景的编写！！！
+
+    //定义星星颜色
+    const STAR_COLOR = '#fff';
+    //定义星星的大小
+    const STAR_SIZE = 3;
+    //定义星星的最小缩放比例
+    const STAR_MIN_SCALE = 0.2;
+    //定义溢出阈值
+    const OVERFLOW_THRESHOLD = 50;
+    //定义星星的数量
+    const STAR_COUNT = (window.innerWidth + window.innerHeight) / 8;
+    //获取canvas元素
+    const canvas = document.querySelector('canvas');
+    //获取canvas的绘图上下文
+    const context = canvas.getContext('2d');
+    //定义缩放比例
+    let scale = 1;
+    //device pixel ratio
+    //定义宽度和高度
+    let width; let height;
+    //定义星星数组
+    let stars = [];
+    //定义鼠标指针的位置
+    let pointerX;
+    let pointerY;
+    //定义速度对象
+    let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0009 };
+    //定义触摸输入标志
+    lettouchInput = false;
+    //生成星星
+    generate();
+    //调整大小
+    resize();
+    //运行动画
+    step();
+    //当窗口大小改变时，重新调整大小
+    window.onresize = resize;
+    //当鼠标在canvas上移动时，更新鼠标指针位置
+    canvas.onmousemove = onMouseMove;
+    //当触摸屏在canvas上移动时，更新鼠标指针位置
+    canvas.ontouchmove = onTouchMove;
+    //当触摸屏离开canvas时，更新鼠标指针位置
+    canvas.ontouchend = onMouseLeave;
+    //当鼠标离开文档时，更新鼠标指针位置
+    document.onmouseleave = onMouseLeave;
+    //生成星星
+    function generate() {
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({ x: 0, y: 0, z: STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE), });
+        }
+    }
+    //将星星放置到随机位置
+    function placeStar(star)
+    {
+        star.x = Math.random() * width;
+        star.y = Math.random() * height;
+    }
+    //回收星星并重新放置到新的位置
+    function recycleStar(star) {
+        //初始化方向为 'z'
+        let direction = 'z';
+        //获取速度的绝对值
+        let vx = Math.abs(velocity.x); let vy = Math.abs(velocity.y);
+        //如果速度的绝对值大于1，则根据速度的大小随机确定方向
+        if (vx > 1 || vy > 1) {
+            let axis;
+            //如果水平速度大于垂直速度，则根据水平速度的比例随机确定水平或垂直方向
+            if (vx > vy)
+            {
+                axis = Math.random() < vx / (vx + vy) ? 'h' : 'v';
+            }
+            else {
+                axis = Math.random() < vy / (vx + vy) ? 'v' : 'h';
+            }
+            // 根据方向确定具体的移动方向
+            if (axis === 'h')
+            {
+                direction = velocity.x > 0 ? 'l' : 'r';
+            }
+            else
+            {
+                direction = velocity.y > 0 ? 't' : 'b';
+            }
+        }
+        //随机设置星星的缩放比例
+        star.z = STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE);
+        //根据方向设置星星的位置
+        if (direction === 'z') {
+            star.z = 0.1; star.x = Math.random() * width;
+            star.y = Math.random() * height;
+        } else if (direction === 'l') {
+
+            star.x = -OVERFLOW_THRESHOLD;
+            star.y = height * Math.random();
+        } else if (direction === 'r') {
+
+            star.x = width + OVERFLOW_THRESHOLD;
+            star.y = height * Math.random();
+        } else if (direction === 't') {
+
+            star.x = width * Math.random();
+            star.y = -OVERFLOW_THRESHOLD;
+        } else if (direction === 'b') {
+            star.x = width * Math.random();
+            star.y = height + OVERFLOW_THRESHOLD;
+        }
+    }
+    //调整大小
+    function resize() {
+        //获取设备像素比例
+        scale = window.devicePixelRatio || 1;
+        //设置画布的宽度和高度
+        width = window.innerWidth * scale;
+        height = window.innerHeight * scale;
+        canvas.width = width;
+        canvas.height = height;
+        //将所有星星重新放置到屏幕上
+        stars.forEach(placeStar);
+    }
+    //动画的每一帧
+    function step() {
+        //清空
+        context.clearRect(0, 0, width, height);
+        //更新星星的位置和速度
+        update();
+        //绘制星星
+        render();
+        //请求下一帧动画
+        requestAnimationFrame(step);
+    }
+    //更新星星的位置和速度
+    function update() {
+        //缓动速度
+        velocity.tx *= 0.96; velocity.ty *= 0.96;
+        //更新速度
+        velocity.x += (velocity.tx - velocity.x) * 0.8;
+        velocity.y += (velocity.ty - velocity.y) * 0.8;
+        //遍历
+        stars.forEach((star) => {
+            // 根据速度和缩放比例更新星星的位置
+            star.x += velocity.x * star.z; star.y += velocity.y * star.z;
+            // 根据速度和缩放比例更新星星的位置（使星星围绕屏幕中心旋转）
+            star.x += (star.x - width / 2) * velocity.z * star.z;
+            star.y += (star.y - height / 2) * velocity.z * star.z;
+            // 更新星星的缩放比例
+            star.z += velocity.z;
+            // 如果星星超出屏幕范围，则重新放置到屏幕上
+            if (star.x < -OVERFLOW_THRESHOLD || star.x > width + OVERFLOW_THRESHOLD || star.y < -OVERFLOW_THRESHOLD || star.y > height + OVERFLOW_THRESHOLD)
+            {
+                recycleStar(star);
+            }
+        });
+    }
+    //绘制星星
+    function render() {
+        //遍历
+        stars.forEach((star) => {
+            //样式
+            context.beginPath(); context.lineCap = 'round';
+            context.lineWidth = STAR_SIZE * star.z * scale;
+            context.globalAlpha = 0.5 + 0.5 * Math.random();
+            context.strokeStyle = STAR_COLOR;
+            //绘制星星的路径
+            context.beginPath(); context.moveTo(star.x, star.y);
+            //计算星星的尾巴坐标
+            let tailX = velocity.x * 2; let tailY = velocity.y * 2;
+            if (Math.abs(tailX) < 0.1) tailX = 0.5; if (Math.abs(tailY) < 0.1) tailY = 0.5;
+            context.lineTo(star.x + tailX, star.y + tailY); context.stroke();
+        });
+    }
+    function movePointer(x, y) {
+        if (typeof pointerX === 'number' && typeof pointerY === 'number')
+        {
+            let ox = x - pointerX; let oy = y - pointerY;
+            velocity.tx = velocity.tx + (ox / 8) * scale * (touchInput ? 1 : -1);
+            velocity.ty = velocity.ty + (oy / 8) * scale * (touchInput ? 1 : -1);
+        }
+        pointerX = x; pointerY = y;
+    }
+    function onMouseMove(event)
+    {
+        touchInput = false; movePointer(event.clientX, event.clientY);
+    }
+    function onTouchMove(event) {
+        touchInput = true;
+        movePointer(event.touches[0].clientX, event.touches[0].clientY, true);
+        event.preventDefault();
+    }
+    function onMouseLeave() { pointerX = null; pointerY = null; }
+</script>
+
+
+</html>
